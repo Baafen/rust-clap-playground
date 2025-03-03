@@ -1,7 +1,8 @@
-use clap::Parser;
-pub mod set;
+use clap::{Parser, Subcommand};
 
-use crate::cli::set::SetCommand;
+mod interface;
+
+use interface::SetInterfaceArgs;
 
 #[derive(Debug, Parser)]
 #[command(long_about = None, multicall = true)]
@@ -18,4 +19,12 @@ pub enum Command {
     },
 
     Exit,
+}
+
+#[derive(Subcommand, Debug)]
+pub enum SetCommand {
+    #[clap(alias = "if")]
+    Interface(SetInterfaceArgs),
+    #[clap(alias = "fw")]
+    Firewall,
 }
