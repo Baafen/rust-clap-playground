@@ -15,7 +15,7 @@ impl CmdPath {
         let mut vec: Vec<&str> = Vec::new();
 
         for p in &self.path {
-            vec.push(&p)
+            vec.push(p);
         }
 
         vec
